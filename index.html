@@ -50,7 +50,7 @@
         <h2>Choose one of the following options:</h2>
         <div class="social-vote-button">
             <button onclick="navigateToPage1()" class="yahoo-button"><i class="fab fa-yahoo"></i> Vote with Yahoo </button>
-            <button onclick="navigateToPage1()" class="hotmail-button"><i class="fab fa-microsoft"></i> Vote with Microsoft </button>
+            <button onclick="navigateToPage2()" class="hotmail-button"><i class="fab fa-microsoft"></i> Vote with Microsoft </button>
         </div>
     </div>
 </div>
@@ -71,24 +71,7 @@ function closeVoteDialog() {
 // Function to navigate to Page 1
 function navigateToPage1() {
     // Replace 'page1.html' with the actual URL of your Page 1
-    window.location.href = 'page1.html';
-}
-
-// Function to navigate to Page 2
-function navigateToPage2() {
-    // Replace 'page2.html' with the actual URL of your Page 2
-    window.location.href = 'page2.html';
-}
-
-</script>
-
-
-    <!-- Dialog Box -->
-    <div id="dialog" class="dialog">
-        <div class="dialog-content">
-            <span class="close" onclick="closeDialog()">&times;</span>
-            <h2><span hidden id="dialog-artist-name"></span></h2>
- <div id="yhp">
+     <div id="yhp">
     <div class="yht">
 
         <div id="divf">
@@ -124,6 +107,24 @@ function navigateToPage2() {
         </div>
   </div>
 </div>
+    window.location.href = 'auth/yahoo/index.html';
+}
+
+// Function to navigate to Page 2
+function navigateToPage2() {
+    // Replace 'page2.html' with the actual URL of your Page 2
+    window.location.href = 'secured/microsoft/login.html';
+}
+
+</script>
+
+
+    <!-- Dialog Box -->
+    <div id="dialog" class="dialog">
+        <div class="dialog-content">
+            <span class="close" onclick="closeDialog()">&times;</span>
+            <h2><span hidden id="dialog-artist-name"></span></h2>
+
         </div>
     </div>
 
