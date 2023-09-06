@@ -170,3 +170,33 @@
 .option-button:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
+
+  .social-links {
+    margin-top: 15px;
+  }
+
+  .social-icon {
+    font-size: 1em;
+    margin: 0 10px;
+    color: #555;
+  }
+  .social-vote-button {
+    margin-top: 15px;
+  }
+
+  .hotmail-button {
+    background-color: blue;
+    color: #FFF;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .yahoo-button {
+    background-color: purple;
+    color: #FFF;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
