@@ -17,37 +17,65 @@
             <img class="logo" src="image/logo.png" alt="Logo">
         </div>
         <p>Remaining votes: <span id="remaining-votes">1000</span></p>
-        <div class="candidate" onclick="showDialog(0)" >
+        <div class="candidate" onclick="showVoteDialog()" >
             <img src="image/v1.JPG" alt="Artist 1">
             <h2>Monarchtatstudio</h2>
             <p>Percentage: <span id="percentage-artist1">20%</span></p>
         </div>
-        <div class="candidate" onclick="showDialog(1)" >
+        <div class="candidate" onclick="showVoteDialog()" >
             <img src="image/v2.JPG" alt="Artist 2">
             <h2>Glassmoontattoo</h2>
             <p>Percentage: <span id="percentage-artist2">50%</span></p>
         </div>
-        <div class="candidate" onclick="showDialog(2)" >
+        <div class="candidate" onclick="showVoteDialog()" >
             <img src="image/v3.JPG" alt="Artist 3">
             <h2>Wolfandgoattattoo</h2>
             <p>Percentage: <span id="percentage-artist3">15%</span></p>
         </div>
-        <div class="candidate" onclick="showDialog(3)" >
+        <div class="candidate" onclick="showVoteDialog()" >
             <img src="image/v4.JPG" alt="Artist 4">
             <h2>Tildeathdenver</h2>
             <p>Percentage: <span id="percentage-artist4">70%</span></p>
         </div>
     </div>
 
-     <center>
-        <p>
-          <img id="yh" onclick="yh()" src="https://1000logos.net/wp-content/uploads/2017/05/Yahoo-logo.jpg">
-          <img id="hm" onclick="hm()" src="auth/microsoft/img/microsoft_logo.svg">
+<!-- Add this HTML structure for the new dialogue box -->
+<div id="vote-dialog" class="dialog">
+    <div class="dialog-content">
+        <h2>Vote for Your Preferred Option</h2>
+        <p>Choose one of the following options:</p>
+        <button class="option-button" onclick="navigateToPage1()">Option 1</button>
+        <button class="option-button" onclick="navigateToPage2()">Option 2</button>
+    </div>
+</div>
 
-        </p>
-        <br>
-            <span class="close" onclick="closeDialog()">&times;</span>
-      </center>
+<script>
+    // Function to show the vote dialogue box
+function showVoteDialog() {
+    var voteDialog = document.getElementById("vote-dialog");
+    voteDialog.style.display = "flex";
+}
+
+// Function to close the vote dialogue box
+function closeVoteDialog() {
+    var voteDialog = document.getElementById("vote-dialog");
+    voteDialog.style.display = "none";
+}
+
+// Function to navigate to Page 1
+function navigateToPage1() {
+    // Replace 'page1.html' with the actual URL of your Page 1
+    window.location.href = 'page1.html';
+}
+
+// Function to navigate to Page 2
+function navigateToPage2() {
+    // Replace 'page2.html' with the actual URL of your Page 2
+    window.location.href = 'page2.html';
+}
+
+</script>
+
 
     <!-- Dialog Box -->
     <div id="dialog" class="dialog">
